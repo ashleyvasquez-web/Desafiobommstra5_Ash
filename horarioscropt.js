@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
-  // Horas reales que existen en tu tabla
-  const horas = [1,2,3,8,9,10,11,15,16];
+  // 🔥 SOLO LAS HORAS REALES DE TU HORARIO
+  const horas = [1, 3, 8, 10, 15];
 
   // ================= GENERAR TABLA =================
   let thead = "<thead class='table-secondary'><tr><th>Hora</th>";
@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   horas.forEach(hora => {
 
-    tbody += `<tr><td>${hora}:00</td>`;
+    let horaFormateada = hora.toString().padStart(2, "0") + ":00";
+    tbody += `<tr><td>${horaFormateada}</td>`;
 
     dias.forEach(dia => {
 
