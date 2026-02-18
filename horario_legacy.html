@@ -163,6 +163,32 @@
 
 <!-- SCRIPT -->
 <script src="horarioscropt.js"></script>
+<script>
+const clases = [
+  { materia: "Programación Web", dia: 1, inicio: 8, fin: 10 },
+  { materia: "Base de Datos", dia: 2, inicio: 10, fin: 12 },
+  { materia: "Redes", dia: 3, inicio: 7, fin: 9 },
+  { materia: "Matemática", dia: 4, inicio: 9, fin: 11 },
+  { materia: "Sistemas Operativos", dia: 5, inicio: 13, fin: 15 }
+];
+
+// dia: 1=Lunes, 2=Martes, 3=Miércoles, 4=Jueves, 5=Viernes
+
+const filas = document.querySelectorAll("#tablaHorario tbody tr");
+
+filas.forEach(fila => {
+  const horaTexto = fila.cells[0].textContent;
+  const hora = parseInt(horaTexto);
+
+  clases.forEach(clase => {
+    if (hora >= clase.inicio && hora < clase.fin) {
+      fila.cells[clase.dia].innerHTML =
+        `<span class="badge bg-primary">${clase.materia}</span>`;
+    }
+  });
+});
+</script>
+
 
 </body>
 </html>
