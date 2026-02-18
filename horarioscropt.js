@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ================= CLASES REALES =================
   const clases = [
     { materia: "PROGRAMACIÓN WEB", grupo: "Gpo 1", dia: "Martes", hora: 10 },
-    { materia: "PROGRAMACIÓN WEB", grupo: "Gpo 1", dia: "Jueves", hora: 15 },
+    { materia: "PROGRAMACIÓN WEB", grupo: "Gpo 1", dia: "Jueves", hora: 3 },
 
     { materia: "INTRO. INGENIERÍA", grupo: "Gpo 3", dia: "Lunes", hora: 8 },
     { materia: "INTRO. INGENIERÍA", grupo: "Gpo 3", dia: "Miércoles", hora: 8 },
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
   // 🔥 SOLO LAS HORAS REALES DE TU HORARIO
-  const horas = [1, 3, 8, 10, 15];
+  const horas = [8, 10, 1, 3];
 
   // ================= GENERAR TABLA =================
   let thead = "<thead class='table-secondary'><tr><th>Hora</th>";
