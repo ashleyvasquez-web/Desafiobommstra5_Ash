@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const vistaCalendario = document.getElementById("vistaCalendario");
   const tabla = document.getElementById("tablaCalendario");
 
-  // ================= CAMBIO DE VISTAS =================
+  // ===== CAMBIO DE VISTA =====
   btnLista.addEventListener("click", function () {
     vistaLista.classList.remove("d-none");
     vistaCalendario.classList.add("d-none");
@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     vistaCalendario.classList.remove("d-none");
   });
 
-  // ================= CLASES REALES =================
+  // ===== CLASES =====
   const clases = [
     { materia: "PROGRAMACIÓN WEB", grupo: "Gpo 1", dia: "Martes", hora: 10 },
-    { materia: "PROGRAMACIÓN WEB", grupo: "Gpo 1", dia: "Jueves", hora: 3 },
+    { materia: "PROGRAMACIÓN WEB", grupo: "Gpo 1", dia: "Jueves", hora: 15 },
 
     { materia: "INTRO. INGENIERÍA", grupo: "Gpo 3", dia: "Lunes", hora: 8 },
     { materia: "INTRO. INGENIERÍA", grupo: "Gpo 3", dia: "Miércoles", hora: 8 },
@@ -28,19 +28,26 @@ document.addEventListener("DOMContentLoaded", function () {
     { materia: "INTRO. INGENIERÍA", grupo: "Gpo 4", dia: "Lunes", hora: 10 },
     { materia: "INTRO. INGENIERÍA", grupo: "Gpo 4", dia: "Jueves", hora: 8 },
 
-    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 7", dia: "Lunes", hora: 3 },
-    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 7", dia: "Jueves", hora: 1 },
+    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 7", dia: "Lunes", hora: 15 },
+    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 7", dia: "Jueves", hora: 13 },
 
-    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 8", dia: "Martes", hora: 3 },
-    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 8", dia: "Miércoles", hora: 1 }
+    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 8", dia: "Martes", hora: 15 },
+    { materia: "INTRO. INGENIERÍA", grupo: "Gpo 8", dia: "Miércoles", hora: 13 },
+
+    // ===== ALMUERZO =====
+    { materia: "ALMUERZO", grupo: "", dia: "Lunes", hora: 12 },
+    { materia: "ALMUERZO", grupo: "", dia: "Martes", hora: 12 },
+    { materia: "ALMUERZO", grupo: "", dia: "Miércoles", hora: 12 },
+    { materia: "ALMUERZO", grupo: "", dia: "Jueves", hora: 12 },
+    { materia: "ALMUERZO", grupo: "", dia: "Viernes", hora: 12 }
   ];
 
   const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
-  // 🔥 SOLO LAS HORAS REALES DE TU HORARIO
-  const horas = [8, 10, 1, 3];
+  // Horas reales del horario
+  const horas = [8, 10, 12, 13, 15];
 
-  // ================= GENERAR TABLA =================
+  // ===== GENERAR TABLA =====
   let thead = "<thead class='table-secondary'><tr><th>Hora</th>";
   dias.forEach(d => thead += `<th>${d}</th>`);
   thead += "</tr></thead>";
@@ -58,9 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       clases.forEach(clase => {
         if (clase.dia === dia && clase.hora === hora) {
+
+          let color = clase.materia === "ALMUERZO"
+            ? "bg-success"
+            : "bg-primary";
+
           contenido += `
-            <div class="badge bg-primary d-block mb-1">
-              ${clase.materia}<br>${clase.grupo}
+            <div class="badge ${color} d-block mb-1">
+              ${clase.materia}
+              ${clase.grupo ? "<br>" + clase.grupo : ""}
             </div>
           `;
         }
